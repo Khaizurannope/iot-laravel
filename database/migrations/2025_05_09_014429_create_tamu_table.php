@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('tujuan_kunjungan');
             $table->dateTime('waktu_kunjungan');
             $table->string('kontak')->nullable();
+            $table->string('status');
             $table->timestamps();
-            $table->enum('status', ['SUDAH PULANG', 'BELUM'])->default('BELUM');
         });
     }
 

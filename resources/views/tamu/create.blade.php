@@ -31,6 +31,10 @@
                 <label for="kontak" class="form-label">Kontak (opsional)</label>
                 <input type="text" class="form-control" id="kontak" name="kontak">
             </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">status</label>
+                <input type="text" class="form-control" id="status" name="status">
+            </div>
             <button type="submit" class="btn btn-primary">Simpan</button>
             <a href="{{ route('tamu.index') }}" class="btn btn-secondary">Kembali</a>
         </form>

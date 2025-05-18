@@ -46,6 +46,7 @@
                   <th>Tujuan</th>
                   <th>Waktu Kunjungan</th>
                   <th>Kontak</th>
+                  <th>Status</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
@@ -57,6 +58,7 @@
                   <td>{{ $item->tujuan_kunjungan }}</td>
                   <td>{{ \Carbon\Carbon::parse($item->waktu_kunjungan)->format('d M Y H:i') }}</td>
                   <td>{{ $item->kontak }}</td>
+                  <td>{{ $item->status }}</td>
                   <td>
                     <a href="{{ route('tamu.edit', $item->id) }}" class="btn btn-sm btn-warning">Edit</a>
                     <form action="{{ route('tamu.destroy', $item->id) }}" method="POST" class="d-inline">

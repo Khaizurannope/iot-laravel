@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\modeltes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class TamuController extends Controller
 {
     public function index() {
-        $tamu = DB::table('tamus')->orderBy('waktu_kunjungan', 'desc')->get();
+        $tamu = modeltes::get();
         return view("tamu.index", compact('tamu'));
     }
 
@@ -23,14 +24,16 @@ class TamuController extends Controller
             'tujuan_kunjungan' => 'required|string|max:255',
             'waktu_kunjungan' => 'required|date',
             'kontak' => 'nullable|string|max:255',
+            'status' => 'string|max:255',
         ]);
 
-        DB::table('tamus')->insert([
+        modeltes::create([
             "nama_tamu" => $request->nama_tamu,
             "instansi" => $request->instansi,
             "tujuan_kunjungan" => $request->tujuan_kunjungan,
             "waktu_kunjungan" => $request->waktu_kunjungan,
             "kontak" => $request->kontak,
+            "status" => $request->status,
             "created_at" => now(),
             "updated_at" => now(),
         ]);
@@ -50,6 +53,7 @@ public function update(Request $request, $id) {
         'tujuan_kunjungan' => $request->tujuan_kunjungan,
         'waktu_kunjungan' => $request->waktu_kunjungan,
         'kontak' => $request->kontak,
+        'status' => $request->status,
         'updated_at' => now()
     ]);
 
